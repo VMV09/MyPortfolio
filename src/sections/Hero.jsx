@@ -8,6 +8,7 @@ import {
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import { useEffect, useState } from "react";
 
 const skills = [
   "React",
@@ -30,7 +31,20 @@ const skills = [
   "GitHub Actions",
 ];
 
+function generateRandomPosition(count = 20) {
+  return Array.from({ length: count }, () => ({
+    top: Math.random() * 100,
+    left: Math.random() * 100,
+  }));
+}
+
 export const Hero = () => {
+  const [dots, setDots] = useState([]);
+
+  useEffect(() => {
+    setDots(generateRandomPosition(30));
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -44,22 +58,17 @@ export const Hero = () => {
       </div>
 
       {/* Green Dots */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            className="absolute w-1.5 h-1.5 rounded-full opacity-60"
-            style={{
-              backgroundColor: "#20B2A6",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {particles.map((dot, idx) => (
+        <span
+          key={idx}
+          className="particle"
+          style={{ 
+            top: dot.top, 
+            left: dot.left,
+            animation: `slow-drift ${p.duration} ease-in-out infinite`,
+            animationDelay: dot.delay, }}
+        />
+      ))}"
 
       {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
