@@ -11,24 +11,30 @@ import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { useEffect, useState } from "react";
 
 const skills = [
+  "Data Structures",
+  "Algorithms and Algorithmic Design",
+  "Python",
+  "C",
+  "SQL",
   "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "GraphQL",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
+  "JavaScript",
+  "MySQL",
+  "OOPs",
+  "FastAPI",
   "Docker",
-  "AWS",
+  "RESTful APIs",
+  "React",
+  "Django",
   "Vercel",
   "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
-  "Figma",
+  "Streamlit",
+  "Flask",
+  "Agile Development",
+  "SDLC",
   "Git",
   "GitHub Actions",
+  "Design Thinking",
+  "Problem Solving",
 ];
 
 function generateRandomPosition(count = 20) {
@@ -58,15 +64,15 @@ export const Hero = () => {
       </div>
 
       {/* Green Dots */}
-      {particles.map((dot, idx) => (
+      {dots.map((dots, idx) => (
         <span
           key={idx}
           className="particle"
           style={{ 
-            top: dot.top, 
-            left: dot.left,
-            animation: `slow-drift ${p.duration} ease-in-out infinite`,
-            animationDelay: dot.delay, }}
+            top: dots.top, 
+            left: dots.left,
+            animation: `slow-drift ${dots.duration} ease-in-out infinite`,
+            animationDelay: dots.delay, }}
         />
       ))}"
 
@@ -78,7 +84,7 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                Software Engineer • Problem Solver • Lifelong Learner
               </span>
             </div>
 
@@ -94,7 +100,7 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
+                Hi, I'm Vishruth M V — a software engineer specializing in
                 React, Next.js, and TypeScript. I build scalable, performant web
                 applications that users love.
               </p>
@@ -151,14 +157,14 @@ export const Hero = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-sm font-medium">
-                      Available for work
+                      Working on a masterpiece...
                     </span>
                   </div>
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-2xl font-bold text-primary">1+</div>
+                  <div className="text-xs text-white">
                     Years Exp.
                   </div>
                 </div>

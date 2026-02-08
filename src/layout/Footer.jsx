@@ -26,7 +26,7 @@ export const Footer = () => {
               VMV<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Vishruth M V. All rights reserved.
+              &copy; {currentYear} Vishruth M V. All rights reserved.
             </p>
           </div>
 

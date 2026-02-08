@@ -6,6 +6,8 @@ import { Experience } from "@/sections/Experience";
 import { Testimonials } from "@/sections/Testimonials";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "./layout/Footer";
+import { Achievements } from "./sections/Achievements";
+import { Seminars } from "./sections/Seminars";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <About />
         <Projects />
         <Experience />
+        <Achievements />
+        <Seminars />
         <Testimonials />
         <Contact />
       </main>

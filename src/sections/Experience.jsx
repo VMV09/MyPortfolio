@@ -1,38 +1,32 @@
 const experiences = [
   {
-    period: "2022 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Tech Innovators Inc.",
+    period: "Dec 2025 — Present",
+    role: "Software Development Engineer - 1",
+    company: "Quoqo Technologies Pvt Ltd.",
+    logo: "/companies/quoqo.png",
     description:
       "Leading frontend architecture for a suite of fintech products. Implemented micro-frontend architecture, reduced bundle size by 40%, and mentored a team of 5 developers.",
     technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
     current: true,
   },
   {
-    period: "2020 — 2022",
-    role: "Frontend Engineer",
-    company: "Digital Solutions Co.",
+    period: "Aug - Dec 2025",
+    role: "Technical Intern - Automation & Data Systems",
+    company: "Alstom Transport India Limited.",
+    logo: "/companies/alstom.png",
     description:
       "Built and maintained multiple React applications for enterprise clients. Introduced automated testing practices that improved code coverage to 85%.",
     technologies: ["React", "Redux", "Jest", "Cypress"],
     current: false,
   },
   {
-    period: "2019 — 2020",
-    role: "Junior Developer",
-    company: "StartUp Labs",
+    period: "Dec 2024 — Jun 2025",
+    role: "Software Engineering Intern",
+    company: "Deputy Director - Bengaluru South, Dept. of Pre-University, Govt. of Karnataka",
+    logo: "/companies/puboard.jpg",
     description:
       "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
     technologies: ["React", "Node.js", "MongoDB", "AWS"],
-    current: false,
-  },
-  {
-    period: "2018 — 2019",
-    role: "Freelance Developer",
-    company: "Self-Employed",
-    description:
-      "Delivered custom web solutions for small businesses and startups. Built 15+ websites and applications, handling everything from design to deployment.",
-    technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
     current: false,
   },
 ];
@@ -47,9 +41,9 @@ export const Experience = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span
-            className="text-secondary-foreground text-sm
+            className="text-secondary-foreground text-sm text-center
            font-medium tracking-wider uppercase animate-fade-in"
           >
             Career Journey
@@ -108,8 +102,26 @@ export const Experience = () => {
                     <span className="text-sm text-primary font-medium">
                       {exp.period}
                     </span>
-                    <h3 className="text-xl font-semibold mt-2">{exp.role}</h3>
-                    <p className="text-muted-foreground">{exp.company}</p>
+                    <div
+  className={`flex items-center gap-4 mt-2 ${
+    idx % 2 === 0 ? "md:justify-end" : ""
+  }`}
+>
+  {exp.logo && (
+    <img
+      src={exp.logo}
+      alt={`${exp.company} logo`}
+      className="w-25 h-15 rounded-lg object-contain bg-surface p-1"
+      loading="lazy"
+    />
+  )}
+
+  <div className={`${idx % 2 === 0 ? "md:text-right" : ""}`}>
+    <h3 className="text-xl font-semibold">{exp.role}</h3>
+    <p className="text-muted-foreground text-sm">{exp.company}</p>
+  </div>
+</div>
+
                     <p className="text-sm text-muted-foreground mt-4">
                       {exp.description}
                     </p>

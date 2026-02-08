@@ -1,4 +1,13 @@
 import {
+  Trophy,
+  BookOpen,
+  Code2,
+  Users,
+  GitBranch,
+  ShieldCheck,
+} from "lucide-react";
+
+import {
   Mail,
   Phone,
   MapPin,
@@ -14,34 +23,63 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "pedro@example.com",
-    href: "mailto:pedro@example.com",
+    value: "vishruth.mv@gmail.com",
+    href: "mailto:vishruth.mv@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 9380924094",
+    href: "tel:+919380924094",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Bengaluru, India",
     href: "#",
   },
 ];
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({
-    type: null, // 'success' or 'error'
-    message: "",
-  });
+
+  const impactMetrics = [
+    {
+      icon: Trophy,
+      label: "Hackathons & Competitions",
+      value: "5+",
+      description: "National & inter-college level participations with wins",
+    },
+    {
+      icon: BookOpen,
+      label: "Research & Publications",
+      value: "2",
+      description: "AI/ML review & research papers in progress",
+    },
+    {
+      icon: Code2,
+      label: "Projects Built",
+      value: "15+",
+      description: "Full-stack, ML, systems & data-driven applications",
+    },
+    {
+      icon: Users,
+      label: "Leadership & Mentorship",
+      value: "30+",
+      description: "Students mentored via clubs, MUN & tech initiatives",
+    },
+    {
+      icon: GitBranch,
+      label: "Production Repositories",
+      value: "10+",
+      description: "Actively maintained projects with CI/CD pipelines",
+    },
+    {
+      icon: ShieldCheck,
+      label: "Domains Explored",
+      value: "AI • Security • Systems",
+      description: "Healthcare, education, networks & cybersecurity",
+    },
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,103 +149,38 @@ export const Contact = () => {
           </p>
         </div>
 
+        {/* Impact Metrics and Contact Info Grid */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  placeholder="Your name..."
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                />
+          <h3 className="text-2xl font-semibold mb-6 text-secondary-foreground">
+            Impact Metrics
+          </h3>
+          <p className="text-muted-foreground mb-8">
+            A snapshot of my work across engineering, research, and leadership - measured by outcomes, not intentions.
+          </p>
+        <div className="grid sm:grid-cols-2 gap-6">
+          {impactMetrics.map((metric) => (
+            <div
+              key={metric.label}
+              className="flex gap-4 p-5 rounded-2xl bg-surface border border-border hover:border-primary/40 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <metric.icon className="w-6 h-6 text-primary" />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  rows={5}
-                  required
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  placeholder="Your message..."
-                  className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
-                />
-              </div>
-
-              <Button
-                className="w-full"
-                type="submit"
-                size="lg"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>Sending...</>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-5 h-5" />
-                  </>
-                )}
-              </Button>
-
-              {submitStatus.type && (
-                <div
-                  className={`flex items-center gap-3
-                     p-4 rounded-xl ${
-                       submitStatus.type === "success"
-                         ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                         : "bg-red-500/10 border border-red-500/20 text-red-400"
-                     }`}
-                >
-                  {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  ) : (
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                  )}
-                  <p className="text-sm">{submitStatus.message}</p>
+                <div className="text-2xl font-bold text-white">
+                  {metric.value}
                 </div>
-              )}
-            </form>
-          </div>
+                <div className="text-sm font-medium text-secondary-foreground">
+                  {metric.label}
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">
+                  {metric.description}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
           {/* Contact Info */}
           <div className="space-y-6 animate-fade-in animation-delay-400">
