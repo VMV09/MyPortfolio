@@ -2,25 +2,25 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "AI powered Early Warning Dropout Mitigation System",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
-    image: "/projects/project1.png",
+      "AI driven dropout risk prediction system leveraging ML models and full-stack infrastructure to identify at-risk students with high accuracy and deliver verified, targeted interventions across large student cohorts.",
+    image: "/projects/dropout.jpg",
     tags: ["React", "Typescript", "NodeJS"],
     link: "#",
     github: "#",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Natural Language to SQL Generator with Automated Database Execution",
     description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
+      "Natural language to SQL system achieving high accuracy and improved usability by converting natural English language into SQL through a custom-built, version-controlled Python execution pipeline.",
     image: "/projects/project2.png",
     tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
     link: "#",
     github: "#",
   },
   {
-    title: "AI Writing Assistant",
+    title: "Identifying Trends and Patterns in Campus Placement Data",
     description:
       "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
     image: "/projects/project3.png",
@@ -29,7 +29,7 @@ const projects = [
     github: "#",
   },
   {
-    title: "Project Management Tool",
+    title: "Blood Bank Management System",
     description:
       "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
     image: "/projects/project4.png",
