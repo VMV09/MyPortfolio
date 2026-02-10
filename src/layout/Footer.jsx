@@ -1,35 +1,64 @@
 import { Github, Linkedin } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/VMV09", label: "GitHub", color: "var(--google-blue)" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/vishruth-mv-4482a11b6", label: "LinkedIn", color: "var(--google-blue)" },
+  { icon: Github, href: "https://github.com/VMV09", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/vishruth-mv-4482a11b6", label: "LinkedIn" },
+];
+
+const footerLinks = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="section-container !py-20 border-t border-white/5 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-google-blue to-transparent opacity-30" />
+    <footer className="py-12 border-t border-border">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Logo & Copyright */}
+          <div className="text-center md:text-left">
+            <a href="#" className="text-xl font-bold tracking-tight">
+              VMV<span className="text-primary">.</span>
+            </a>
+            <p className="text-sm text-muted-foreground mt-2">
+              &copy; {currentYear} Vishruth M V. All rights reserved.
+            </p>
+          </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="space-y-4 text-center md:text-left">
-          <a href="#" className="text-3xl font-bold tracking-tighter hover:scale-105 transition-smooth inline-block">
-            VMV<span className="text-google-blue">.</span>
-          </a>
-        </div>
+          {/* Links */}
+          <nav className="flex flex-wrap justify-center gap-6">
+            {footerLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-
-        <div className="text-center md:text-right space-y-4">
-          <p className="text-sm font-bold text-text-muted uppercase tracking-[0.2em]">
-            &copy; {currentYear} All Rights Reserved
-          </p>
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+              >
+                <social.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
   );
 };
-
-
-
-
