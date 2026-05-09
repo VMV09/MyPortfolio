@@ -45,10 +45,11 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setSubmitStatus(null);
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     const name = formData.get("name").trim();
     const email = formData.get("email").trim();
     const message = formData.get("message").trim();
@@ -91,7 +92,7 @@ export const Contact = () => {
         }
       );
 
-      e.currentTarget.reset();
+      form.reset();
       setSubmitStatus({
         type: "success",
         message: "Inquiry sent. I will get back to you soon.",
