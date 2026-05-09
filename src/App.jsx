@@ -50,7 +50,7 @@ function App() {
   return (
     <div className="min-h-screen bg-background text-text-primary selection:bg-google-blue/30 selection:text-white relative">
       {/* Noise Texture Overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] mix-blend-overlay bg-[radial-gradient(rgba(255,255,255,0.8)_1px,transparent_1px)] bg-[length:4px_4px]" />
 
       <Navbar />
 
