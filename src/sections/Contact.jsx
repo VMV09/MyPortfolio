@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send, Copy, Check, Globe, Sparkles } from "lucide-react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { SpotlightCard } from "@/components/SpotlightCard";
 
 const contactInfo = [
@@ -29,6 +30,11 @@ const contactInfo = [
 export const Contact = () => {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const emailServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const emailTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const emailPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   const copyEmail = (e) => {
     e.preventDefault();
@@ -37,10 +43,68 @@ export const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitStatus(null);
     setIsSubmitting(true);
-    setTimeout(() => setIsSubmitting(false), 2000); // Simulate API call
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+    const message = formData.get("message").trim();
+    const submittedAt = new Date().toLocaleString("en-IN", {
+      dateStyle: "medium",
+      timeStyle: "short",
+      timeZone: "Asia/Kolkata",
+    });
+
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setSubmitStatus({
+        type: "error",
+        message: "Email service is not configured yet. Please try emailing me directly.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        emailServiceId,
+        emailTemplateId,
+        {
+          from_name: name,
+          from_email: email,
+          reply_to: email,
+          subject: `Portfolio Inquiry from ${name}`,
+          message: [
+            "New portfolio inquiry",
+            "",
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Message: ${message}`,
+            `Source: Portfolio contact form`,
+            `Submitted At: ${submittedAt}`,
+          ].join("\n"),
+        },
+        {
+          publicKey: emailPublicKey,
+        }
+      );
+
+      e.currentTarget.reset();
+      setSubmitStatus({
+        type: "success",
+        message: "Inquiry sent. I will get back to you soon.",
+      });
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Could not send your inquiry right now. Please email me directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -132,8 +196,10 @@ export const Contact = () => {
               <div className="space-y-8">
                 <div className="relative group">
                   <input
+                    name="name"
                     type="text"
                     required
+                    autoComplete="name"
                     placeholder=" "
                     className="w-full bg-transparent border-b border-white/10 py-4 text-text-primary focus:outline-none peer transition-all duration-500 focus:border-google-blue text-lg"
                   />
@@ -145,8 +211,10 @@ export const Contact = () => {
 
                 <div className="relative group">
                   <input
+                    name="email"
                     type="email"
                     required
+                    autoComplete="email"
                     placeholder=" "
                     className="w-full bg-transparent border-b border-white/10 py-4 text-text-primary focus:outline-none peer transition-all duration-500 focus:border-google-blue text-lg"
                   />
@@ -158,6 +226,7 @@ export const Contact = () => {
 
                 <div className="relative group">
                   <textarea
+                    name="message"
                     required
                     placeholder=" "
                     rows="4"
@@ -171,6 +240,7 @@ export const Contact = () => {
               </div>
 
               <button
+                type="submit"
                 disabled={isSubmitting}
                 className="w-full py-5 rounded-2xl bg-white text-black font-black text-sm uppercase tracking-[0.2em] flex items-center justify-center gap-4 transition-all duration-500 hover:bg-google-blue hover:text-white shadow-2xl shadow-google-blue/10 active:scale-95 disabled:opacity-70 group"
               >
@@ -183,6 +253,17 @@ export const Contact = () => {
                   </>
                 )}
               </button>
+
+              {submitStatus && (
+                <p
+                  className={`text-sm font-semibold ${
+                    submitStatus.type === "success" ? "text-google-green" : "text-google-red"
+                  }`}
+                  role="status"
+                >
+                  {submitStatus.message}
+                </p>
+              )}
             </form>
           </SpotlightCard>
         </div>
