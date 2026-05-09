@@ -1,13 +1,4 @@
-import { Button } from "@/components/Button";
-import {
-  ArrowRight,
-  ChevronDown,
-  Github,
-  Linkedin,
-  Download,
-} from "lucide-react";
-import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
-import { useState, useEffect } from "react";
+import { Download } from "lucide-react";
 import { CardStack } from "../components/CardStack";
 import { TextType } from "../components/TextType";
 
@@ -52,6 +43,17 @@ export const Hero = () => {
                   typingSpeed={30}
                 />
               </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-600">
+              <a
+                href="/resume.pdf"
+                download="Vishruth_M_V_Resume.pdf"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-black shadow-lg shadow-white/10 transition-smooth hover:bg-gray-200 active:scale-95"
+              >
+                <Download size={20} />
+                Download CV
+              </a>
             </div>
 
           </div>
