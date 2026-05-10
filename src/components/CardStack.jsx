@@ -6,7 +6,7 @@ export const CardStack = () => {
         {
             id: 1,
             type: "image",
-            content: "/profile-photo.jpg",
+            content: "/Profile.jpeg",
             alt: "Vishruth M V",
             label: "Profile",
             title: "Vishruth M V",
@@ -15,7 +15,7 @@ export const CardStack = () => {
         {
             id: 2,
             type: "image",
-            content: "/profile-photo.jpg",
+            content: "/AIResearcher.jpeg",
             alt: "Vishruth M V",
             label: "Expertise",
             title: "System Architect",
@@ -24,7 +24,7 @@ export const CardStack = () => {
         {
             id: 3,
             type: "image",
-            content: "/profile-photo.jpg",
+            content: "/Speaker.jpeg",
             alt: "Vishruth M V",
             label: "Research",
             title: "AI Researcher",
@@ -33,7 +33,7 @@ export const CardStack = () => {
     ]);
 
     return (
-        <div className="relative w-full max-w-md mx-auto aspect-[3/4] md:aspect-square flex items-center justify-center">
+        <div className="relative w-full max-w-md mx-auto aspect-3/4 md:aspect-square flex items-center justify-center">
             <div className="relative w-full h-full">
                 {cards.map((card, index) => (
                     <Card
@@ -160,7 +160,7 @@ const Card = ({ card, index, isFront, onSwipe }) => {
         >
             {card.type === "image" ? (
                 <div className="w-full h-full relative group">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent z-10" />
                     <img
                         src={card.content}
                         alt={card.alt}
