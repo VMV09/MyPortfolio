@@ -15,7 +15,7 @@ const projects = [
   {
     title: "NL to SQL Generator",
     description: "Natural language to SQL system converting English queries into executable SQL through a custom Python execution pipeline.",
-    image: "/projects/project2.png",
+    image: "/projects/sql.jpeg",
     tags: ["Next.js", "Python", "PostgreSQL", "Tailwind"],
     category: "LLM Ops",
     link: "#",
@@ -56,7 +56,7 @@ export const Projects = () => {
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-[1px] bg-google-blue" />
+              <div className="w-10 h-px bg-google-blue" />
               <span className="text-google-blue font-bold tracking-[0.3em] uppercase text-xs">Portfolio</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
@@ -70,12 +70,12 @@ export const Projects = () => {
           {projects.map((project, idx) => (
             <SpotlightCard
               key={idx}
-              className="group !p-0 border-white/5 hover:border-white/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl"
+              className="group p-!0 border-white/5 hover:border-white/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl"
               spotlightColor={`${project.color}15`}
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden">
                 {/* Image Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-60" />
+                <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60" />
 
                 <img
                   src={project.image}
@@ -156,5 +156,3 @@ export const Projects = () => {
     </section>
   );
 };
-
-

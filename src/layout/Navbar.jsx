@@ -1,15 +1,15 @@
 import { Button } from "@/components/Button";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#seminars", label: "Engagements" },
-  { href: "#projects", label: "Projects" },
-  { href: "#achievements", label: "Achievements" },
-  { href: "#social", label: "Social" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", id: "about", label: "About" },
+  { href: "/#experience", id: "experience", label: "Experience" },
+  { href: "/#seminars", id: "seminars", label: "Engagements" },
+  { href: "/#projects", id: "projects", label: "Projects" },
+  { href: "/#achievements", id: "achievements", label: "Achievements" },
+  { href: "/#social", id: "social", label: "Social" },
+  { href: "/#contact", id: "contact", label: "Contact" },
 ];
 
 export const Navbar = () => {
@@ -18,7 +18,7 @@ export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [theme] = useState(localStorage.getItem("theme") || "dark");
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const Navbar = () => {
       setIsScrolled(currentScrollY > 50);
       lastScrollY.current = currentScrollY;
 
-      const sections = navLinks.map(link => link.href.substring(1));
+      const sections = navLinks.map(link => link.id);
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -60,8 +60,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isVisible ? "translate-y-0" : "-translate-y-full"
@@ -76,14 +74,14 @@ export const Navbar = () => {
       />
 
       <nav className="section-container !py-0 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold tracking-tighter hover:scale-105 transition-smooth">
+        <a href="/" className="text-2xl font-bold tracking-tighter hover:scale-105 transition-smooth">
           VMV<span className="text-google-blue">.</span>
         </a>
 
         <div className="hidden md:flex items-center gap-6">
           <div className="glass rounded-full px-2 py-1.5 flex items-center gap-1 border-white/5">
             {navLinks.map((link, index) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = activeSection === link.id;
               return (
                 <a
                   href={link.href}

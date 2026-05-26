@@ -13,28 +13,28 @@ const achievements = [
     title: "Entrepreneurship Development Cell",
     highlight: "President & Operational Lead",
     color: "var(--google-blue)",
-    description: "Leading national-level hackathons and AI initiatives, focused on healthcare and social impact.",
+    description: "Leading national-level Eureka! 2026 hackathon of IIT Mumbai, chaired and incepted student focused AI initiatives, focused on education and social impact.",
   },
   {
     icon: BookOpen,
-    title: "Research & Publications",
+    title: "Research, Publications & Conferences",
     highlight: "AI & ML Research",
     color: "var(--google-red)",
-    description: "Authored research papers in NLP and medical analytics, exploring real-world data applications.",
+    description: "Authored and Chaired research, journal and conference papers in Artifical Intelligence, Machine Learning, EdTech and healthcare, exploring real-world data applications.",
   },
   {
     icon: Rocket,
     title: "Startup & Innovation",
     highlight: "Future Founders Program",
     color: "var(--google-yellow)",
-    description: "Handpicked for problem-driven startup ideation and execution at ED Cell BNMIT.",
+    description: "Qualified and selected for problem-driven startup inception, ideation, execution and funding at Entrepreneurship Development Cell BNMIT.",
   },
   {
     icon: Brain,
     title: "Domain Expertise",
     highlight: "AI • Systems • Security",
     color: "var(--google-green)",
-    description: "Deep hands-on experience in intrusion detection, healthcare analytics, and EdTech.",
+    description: "Deep domain and use case inderstanding of AI and hands-on experience in EdTech, LegalTech, and Public Sector systems, with a focus on AI-driven solutions.",
   },
 ];
 
