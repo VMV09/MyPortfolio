@@ -15,6 +15,17 @@ export const EventCard = ({ event, index = 0, compact = false }) => {
           compact ? "p-6" : "p-8"
         }`}
       >
+        {!compact && event.heroImage && (
+          <div className="-mx-8 -mt-8 mb-7 overflow-hidden border-b border-white/10 bg-black/20">
+            <img
+              src={event.heroImage}
+              alt={`${event.title} preview`}
+              loading="lazy"
+              className="aspect-[16/9] w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          </div>
+        )}
+
         <div className={compact ? "mb-5 relative" : "mb-8 relative"}>
           <div
             className={`rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg ${

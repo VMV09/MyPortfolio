@@ -17,7 +17,7 @@ const achievements = [
   },
   {
     icon: BookOpen,
-    title: "Research, Publications & Conferences",
+    title: "Research & Academic Contributions",
     highlight: "AI & ML Research",
     color: "var(--google-red)",
     description: "Authored and Chaired research, journal and conference papers in Artifical Intelligence, Machine Learning, EdTech and healthcare, exploring real-world data applications.",
@@ -158,5 +158,4 @@ export const Achievements = () => {
     </section>
   );
 };
-
 

@@ -6,6 +6,32 @@ export const flagshipProjects = [
     contextName: "DDPU Karnataka",
     year: "2024-2025",
     previewImage: "/projects/project1.png",
+    recognitionImage: "/Honor_ddpu.jpg",
+    recognitionAlt: "Felicitation for the INSIGHT project at DDPU Karnataka",
+    planningImages: [
+      {
+        title: "Initial stakeholder walkthrough",
+        src: "/puboard1.jpg",
+        alt: "Pre-project planning discussion for INSIGHT in the PU Board conference room",
+        caption:
+          "Early planning session with PU Board leadership before the INSIGHT project moved into implementation.",
+        featured: true,
+      },
+      {
+        title: "Requirement discovery",
+        src: "/puboard2.JPG",
+        alt: "Requirement discussion with PU Board stakeholders before project initiation",
+        caption:
+          "Requirement discussion with PU Board stakeholders before project initiation.",
+      },
+      {
+        title: "Department visit",
+        src: "/puboard3.JPG",
+        alt: "Visit to the Department of School Education Pre-University during the planning phase",
+        caption:
+          "Visit to the Department of School Education, Pre-University, during the planning phase.",
+      },
+    ],
     description:
       "A centralized administrative platform for institutional records, reporting workflows, validation, and department-level operational visibility.",
     techStack: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "REST APIs", "Role-based flows"],

@@ -17,7 +17,7 @@ import { ArrowUp } from "lucide-react";
 import { EventDetails } from "@/pages/EventDetails";
 import { ProjectDetails } from "@/pages/ProjectDetails";
 
-import Publications from "@/sections/Publications";
+import ResearchContributions from "@/sections/ResearchContributions";
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -38,7 +38,6 @@ function App() {
 
     if (window.location.pathname === "/" && window.location.hash === "#flagship-projects") {
       window.history.replaceState({}, "", "/");
-      setLocation({ pathname: "/", hash: "" });
     }
 
     if (window.location.pathname === "/" && !window.location.hash) {
@@ -142,7 +141,7 @@ function App() {
           <div id="experience" className="reveal"><Experience /></div>
           <div id="seminars" className="reveal"><Seminars /></div>
           <div id="flagship-projects" className="reveal"><FlagshipProjects /></div>
-          <div id="publications" className="reveal"><Publications /></div>
+          <div id="research-academic-contributions" className="reveal"><ResearchContributions /></div>
           <div id="data-legions" className="reveal"><DataLegionsPortal /></div>
           <div id="projects" className="reveal"><Projects /></div>
           <div id="achievements" className="reveal"><Achievements /></div>
@@ -166,4 +165,3 @@ function App() {
 }
 
 export default App;
-

@@ -27,7 +27,7 @@ export const Hero = () => {
             {/* Headline */}
             <div className="space-y-6">
               <h1 className="hero-title animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
-                Hi, I'm Vishruth <br />
+                <span className="hero-greeting">Hey, I'm Vishruth M V</span> <br />
                 <TextType
                   text={["Software Engineer", "Problem Solver", "Full Stack Dev"]}
                   typingSpeed={100}
@@ -37,7 +37,7 @@ export const Hero = () => {
               </h1>
               <div className="text-xl text-text-secondary max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-400">
                 <TextType
-                  text="Specializing in backend development and scalable systems. I turn complex problems into elegant, performant digital solutions."
+                  text="Specializing in backend and AI systems development and scalable solutions. I turn complex problems into elegant, performant digital solutions."
                   loop={false}
                   cursorCharacter=""
                   typingSpeed={30}

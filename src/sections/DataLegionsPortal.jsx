@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 
 const dataLegionsUrl = "https://datalegions.netlify.app/";
 const descriptors = ["AI Research", "Systems Thinking", "Collaborative Innovation"];
+const MotionAnchor = motion.a;
+const MotionSpan = motion.span;
 
 export const DataLegionsPortal = () => (
   <section className="section-container relative !py-10 md:!py-12">
-    <motion.a
+    <MotionAnchor
       href={dataLegionsUrl}
       className="group relative block overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.022] px-5 py-8 shadow-[0_22px_70px_rgba(0,0,0,0.22)] outline-none transition-smooth md:px-8 md:py-10 lg:px-10 lg:py-12"
       initial={{ opacity: 0, y: 18 }}
@@ -18,7 +20,7 @@ export const DataLegionsPortal = () => (
       aria-label="Open Data Legions collective website"
     >
       {/* One restrained ambient accent gives the affiliation block quiet presence. */}
-      <motion.span
+      <MotionSpan
         className="pointer-events-none absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[#8aa4bc]/10 blur-3xl"
         animate={{ opacity: [0.34, 0.58, 0.34], scale: [1, 1.08, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -34,13 +36,13 @@ export const DataLegionsPortal = () => (
             <h2 className="text-4xl font-medium leading-tight tracking-tight text-text-primary/95 md:text-5xl lg:text-[56px]">
               Data Legions
             </h2>
-            <motion.span
+            <MotionSpan
               className="inline-flex rounded-full border border-[#9cafbf]/20 bg-[#9cafbf]/7 p-2 text-[#c2d0dc]"
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
               whileHover={{ x: 4, y: -4 }}
             >
               <ArrowUpRight className="h-5 w-5 md:h-6 md:w-6" />
-            </motion.span>
+            </MotionSpan>
           </div>
         </div>
 
@@ -57,6 +59,6 @@ export const DataLegionsPortal = () => (
           ))}
         </div>
       </div>
-    </motion.a>
+    </MotionAnchor>
   </section>
 );

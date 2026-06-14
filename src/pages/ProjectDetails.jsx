@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowLeft, ExternalLink, Layers3 } from "lucide-react";
+import { ArrowLeft, Award, ExternalLink, Layers3 } from "lucide-react";
 import { getProjectBySlug } from "@/data/flagshipProjects";
 
 const SectionTitle = ({ eyebrow, title }) => (
@@ -100,6 +100,55 @@ export const ProjectDetails = ({ slug }) => {
 
       <div className="event-section-divider" />
 
+      {project.planningImages?.length > 0 && (
+        <>
+          <section className="section-container !py-12">
+            <div className="mx-auto max-w-5xl">
+              <SectionTitle eyebrow="Pre-Project Planning" title="Stakeholder Discovery With PU Board Leadership" />
+              <div className="space-y-4">
+                {project.planningImages
+                  .filter((image) => image.featured)
+                  .map((image) => (
+                    <figure key={image.src} className="overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.025]">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="aspect-[21/9] w-full object-cover object-center opacity-95"
+                      />
+                      <figcaption className="border-t border-white/[0.06] px-4 py-3">
+                        <p className="text-sm font-semibold text-text-primary">{image.title}</p>
+                        <p className="mt-1 text-sm leading-relaxed text-text-secondary">{image.caption}</p>
+                      </figcaption>
+                    </figure>
+                  ))}
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  {project.planningImages
+                    .filter((image) => !image.featured)
+                    .map((image) => (
+                      <figure key={image.src} className="overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.025]">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          className="aspect-[4/3] w-full object-cover object-center opacity-90"
+                        />
+                        <figcaption className="border-t border-white/[0.06] px-4 py-3">
+                          <p className="text-sm font-semibold text-text-primary">{image.title}</p>
+                          <p className="mt-1 text-sm leading-relaxed text-text-secondary">{image.caption}</p>
+                        </figcaption>
+                      </figure>
+                    ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div className="event-section-divider" />
+        </>
+      )}
+
       <section className="section-container !py-12">
         <div className="mx-auto max-w-5xl">
           <SectionTitle eyebrow="Overview" title="Project Context" />
@@ -115,6 +164,37 @@ export const ProjectDetails = ({ slug }) => {
       </section>
 
       <div className="event-section-divider" />
+
+      {project.recognitionImage && (
+        <>
+          <section className="section-container !py-12">
+            <div className="mx-auto max-w-5xl">
+              <SectionTitle eyebrow="Recognition" title="Felicitation Moment" />
+              <div className="grid gap-5 overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.025] lg:grid-cols-[1fr_0.72fr]">
+                <figure className="bg-black/15">
+                  <img
+                    src={project.recognitionImage}
+                    alt={project.recognitionAlt}
+                    loading="lazy"
+                    className="aspect-[16/9] h-full w-full object-cover opacity-95"
+                  />
+                </figure>
+                <div className="flex flex-col justify-center p-5 md:p-7">
+                  <Award className="h-5 w-5 text-google-blue" />
+                  <h3 className="mt-4 text-xl font-semibold tracking-tight text-text-primary">
+                    Recognized for public-sector implementation
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                    A felicitation for the INSIGHT project, marking its role in improving administrative visibility and institutional workflows for DDPU Karnataka.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div className="event-section-divider" />
+        </>
+      )}
 
       <section className="section-container !py-12">
         <div className="mx-auto max-w-5xl">

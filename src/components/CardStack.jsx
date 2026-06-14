@@ -83,10 +83,6 @@ const Card = ({ card, index, isFront, onSwipe }) => {
 
         const threshold = 100;
         if (Math.abs(position.x) > threshold) {
-            // Swipe animation (simple version without framer-motion)
-            const direction = position.x > 0 ? 1 : -1;
-            const flyOutX = direction * 500; // Fly off screen
-
             // We'll use a timeout to change the state after visual "exit" could theoretically happen
             // But without animation libraries, we can just trigger the state change.
             // To make it smooth, we might want to manually set a "flying" state, but let's keep it simple for now or use CSS transitions.
@@ -107,19 +103,6 @@ const Card = ({ card, index, isFront, onSwipe }) => {
     const onTouchEnd = () => handleEnd();
 
     const rotate = isDragging ? position.x * 0.05 : 0;
-
-    // Style for the cards in the back
-    const offset = (cardsTotal, i) => {
-        // Logic to stack cards visually behind
-        // If Front (cardsTotal - 1), offset is 0
-        // Behind 1: scale 0.95, y -10
-        // Behind 2: scale 0.9, y -20
-        return {
-            scale: 1 - (cardsTotal - 1 - i) * 0.05,
-            y: -(cardsTotal - 1 - i) * 15,
-            zIndex: i
-        }
-    }
 
     // We only render dragging logic for the FRONT card
     // But we need to calculate styles for ALL cards

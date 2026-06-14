@@ -6,6 +6,11 @@ const navLinks = [
   { href: "/#about", id: "about", label: "About" },
   { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#seminars", id: "seminars", label: "Engagements" },
+  {
+    href: "/#research-academic-contributions",
+    id: "research-academic-contributions",
+    label: "Research & Academic Contributions",
+  },
   { href: "/#projects", id: "projects", label: "Projects" },
   { href: "/#achievements", id: "achievements", label: "Achievements" },
   { href: "/#social", id: "social", label: "Social" },
@@ -78,7 +83,7 @@ export const Navbar = () => {
           VMV<span className="text-google-blue">.</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4">
           <div className="glass rounded-full px-2 py-1.5 flex items-center gap-1 border-white/5">
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.id;
@@ -86,7 +91,7 @@ export const Navbar = () => {
                 <a
                   href={link.href}
                   key={index}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-smooth ${isActive
+                  className={`px-3 py-2 text-xs font-medium rounded-full transition-smooth ${isActive
                     ? "bg-google-blue text-white shadow-lg shadow-google-blue/20"
                     : "text-text-secondary hover:text-text-primary hover:bg-white/5"
                     }`}
@@ -141,5 +146,3 @@ export const Navbar = () => {
     </header>
   );
 };
-
-

@@ -174,11 +174,16 @@ const Highlights = ({ event }) => (
   </section>
 );
 
-const Proof = ({ event }) => (
-  <section className="section-container !py-14 relative">
-    <SectionHeader eyebrow="Certifications & Proof" title="Documents" accent={event.color} />
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {event.certificates.map((document, index) => {
+const Proof = ({ event }) => {
+  const certificates = event.certificates || [];
+
+  if (certificates.length === 0) return null;
+
+  return (
+    <section className="section-container !py-14 relative">
+      <SectionHeader eyebrow="Certifications & Proof" title="Documents" accent={event.color} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {certificates.map((document, index) => {
         const Icon = proofTypeIcons[document.type] || proofTypeIcons.default;
         const isPdf = document.src.endsWith(".pdf");
 
@@ -225,10 +230,11 @@ const Proof = ({ event }) => (
             </div>
           </a>
         );
-      })}
-    </div>
-  </section>
-);
+        })}
+      </div>
+    </section>
+  );
+};
 
 export const EventDetails = ({ slug }) => {
   const event = getEventBySlug(slug);

@@ -1,13 +1,24 @@
 const experiences = [
   {
-    period: "Dec 2025 — Present",
+    period: "Jul 2026 — Present",
+    role: "Agent Engineer - AI Systems",
+    company: "DecisionX AI",
+    logo: "/companies/decisionx.png",
+    description:
+      "Leading the design and development of AI agents for enterprise applications. Spearheading initiatives in autonomous decision-making systems and multi-agent coordination.",
+    technologies: ["Python", "TensorFlow", "Reinforcement Learning", "Docker"],
+    current: true,
+
+  },
+  {
+    period: "Dec 2025 — Jun 2026",
     role: "Software Development Engineer - 1",
     company: "Quoqo Technologies Pvt Ltd.",
     logo: "/companies/quoqo.png",
     description:
-      "Leading frontend architecture for a suite of fintech products. Implemented micro-frontend architecture, reduced bundle size by 40%, and mentored a team of 5 developers.",
-    technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
-    current: true,
+      "Delivered enterprise software solutions across production engineering, feature development, on-prem deployments, cross-platform database integrations, and executive-level UAT engagements.",
+    technologies: ["React", "Django", "MySQL", "Docker", "On-prem Deployments", "GraphQL"],
+    current: false,
   },
   {
     period: "Aug - Dec 2025",
@@ -15,8 +26,8 @@ const experiences = [
     company: "Alstom Transport India Limited.",
     logo: "/companies/alstom.png",
     description:
-      "Built and maintained multiple React applications for enterprise clients. Introduced automated testing practices that improved code coverage to 85%.",
-    technologies: ["React", "Redux", "Jest", "Cypress"],
+      "Built production-grade automation solutions for safety-critical railway signalling workflows, reducing processing time by 60% and improving reliability across 100+ projects.",
+    technologies: ["Python", "Flask", "Docker", "PostgreSQL", "CI/CD"],
     current: false,
   },
   {
@@ -25,8 +36,8 @@ const experiences = [
     company: "Deputy Director - Bengaluru South, Dept. of Pre-University, Govt. of Karnataka",
     logo: "/companies/puboard.jpg",
     description:
-      "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
-    technologies: ["React", "Node.js", "MongoDB", "AWS"],
+      "Designed and developed a scalable administrative information system serving 400+ educational institutions, leading stakeholder requirement analysis, system design, and end-to-end implementation while optimizing SQL data retrieval performance to reduce query latency by 60%.",
+    technologies: ["React", "Node.js", "MongoDB", "Digital Ocean"],
     current: false,
   },
 ];

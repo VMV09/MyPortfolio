@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { gsap } from 'gsap';
 
 export const TextType = ({
@@ -15,7 +15,7 @@ export const TextType = ({
     const [phraseIndex, setPhraseIndex] = useState(0);
     const cursorRef = useRef(null);
 
-    const phrases = Array.isArray(text) ? text : [text];
+    const phrases = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
 
     useEffect(() => {
         // Blinking cursor animation

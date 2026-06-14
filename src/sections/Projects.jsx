@@ -1,156 +1,183 @@
-import { ArrowUpRight, Github, Code2, ExternalLink, Sparkles } from "lucide-react";
-import { SpotlightCard } from "@/components/SpotlightCard";
+import { ArrowUpRight, CheckCircle2, Database, LineChart, ShieldCheck, Sparkles } from "lucide-react";
 
 const projects = [
   {
-    title: "AI Early Warning System",
-    description: "AI driven dropout risk prediction system leveraging ML models to identify at-risk students with high accuracy and deliver targeted interventions.",
-    image: "/projects/dropout.jpg",
-    tags: ["React", "Python", "ML", "NodeJS"],
-    category: "AI/ML",
-    link: "#",
-    github: "#",
-    color: "var(--google-blue)"
+    title: "AI Powered Early Warning Dropout Mitigation System",
+    eyebrow: "EdTech AI Platform",
+    metric: "35%",
+    metricLabel: "potential dropout reduction",
+    accent: "var(--google-blue)",
+    summary:
+      "Full-stack risk intelligence platform for identifying at-risk students and coordinating verified support interventions at scale.",
+    outcomes: [
+      "Served 1000+ users through a Python, Flask, and SQL platform aligned to NEP 2020 support workflows.",
+      "Reached 85% model accuracy using academic, behavioral, and socio-economic indicators for dropout risk detection.",
+      "Launched Aadhaar-verified intervention flows to improve targeted student support and engagement visibility.",
+    ],
+    stack: ["Python", "Flask", "SQL", "Machine Learning", "Aadhaar Verification"],
+    icon: ShieldCheck,
   },
   {
-    title: "NL to SQL Generator",
-    description: "Natural language to SQL system converting English queries into executable SQL through a custom Python execution pipeline.",
-    image: "/projects/sql.jpeg",
-    tags: ["Next.js", "Python", "PostgreSQL", "Tailwind"],
-    category: "LLM Ops",
-    link: "#",
-    github: "#",
-    color: "var(--google-red)"
+    title: "Natural Language to SQL Generator with Automated Database Execution",
+    eyebrow: "NLP Systems",
+    metric: "92%",
+    metricLabel: "model accuracy",
+    accent: "var(--google-red)",
+    summary:
+      "Natural-language query engine that converts English requests into executable SQL with validation, execution, and iteration loops.",
+    outcomes: [
+      "Improved accessibility for non-technical users by 70% across diverse natural-language query samples.",
+      "Built dynamic database creation, real-time query execution, and security validation cycles in a Python and SQLite pipeline.",
+      "Used Git-backed debugging cycles to deliver a 5% performance gain per iteration.",
+    ],
+    stack: ["Python", "SQLite", "NLP", "Query Execution", "Git"],
+    icon: Database,
   },
   {
-    title: "Placement Data Analyst",
-    description: "Intelligent analytics tool identifying trends and patterns in campus placement data to predict future hiring cycles.",
-    image: "/projects/project3.png",
-    tags: ["React", "FastAPI", "Pandas"],
-    category: "Data Arch",
-    link: "#",
-    github: "#",
-    color: "var(--google-green)"
+    title: "Identifying Trends and Patterns in Campus Placement Data",
+    eyebrow: "Analytics & Prediction",
+    metric: "30%",
+    metricLabel: "prediction accuracy lift",
+    accent: "var(--google-green)",
+    summary:
+      "Multi-year placement analytics system for understanding department performance, role demand, company behavior, and compensation patterns.",
+    outcomes: [
+      "Analyzed campus placement datasets across departments, roles, company types, and compensation levels.",
+      "Built predictive models and visualization dashboards to turn historical placement data into planning insight.",
+      "Used Pandas, NumPy, and Matplotlib to surface trends and communicate hiring-cycle patterns clearly.",
+    ],
+    stack: ["Python", "Pandas", "NumPy", "Matplotlib", "Dashboards"],
+    icon: LineChart,
   },
   {
-    title: "Blood Bank Management",
-    description: "Reliable management system for tracking blood inventory and donor data with real-time updates and notifications.",
-    image: "/projects/project4.png",
-    tags: ["Node.js", "MongoDB", "Socket.io"],
-    category: "FinTech",
-    link: "#",
-    github: "#",
-    color: "var(--google-yellow)"
+    title: "Blood Bank Management System",
+    eyebrow: "Healthcare Operations",
+    metric: "40%",
+    metricLabel: "response coordination improvement",
+    accent: "var(--google-yellow)",
+    summary:
+      "Modular emergency-response system for donor records, inventory retrieval, real-time alerts, and reliable blood-bank operations.",
+    outcomes: [
+      "Engineered a full-stack Java and PHP application with MySQL-backed inventory and donor management.",
+      "Implemented secure authentication, CRUD workflows, automated alerts, and normalized database design.",
+      "Improved emergency response coordination through faster inventory retrieval and real-time alert effectiveness.",
+    ],
+    stack: ["Java", "PHP", "MySQL", "Authentication", "SDLC"],
+    icon: Sparkles,
   },
 ];
+
+const ProjectRow = ({ project, index }) => {
+  const Icon = project.icon;
+  const isOffset = index % 2 === 1;
+
+  return (
+    <article
+      className={`group relative grid gap-6 border-t border-white/7 py-10 md:grid-cols-[0.62fr_1.38fr] md:gap-10 ${
+        isOffset ? "lg:ml-16" : "lg:mr-16"
+      }`}
+    >
+      <div className="flex items-start gap-5 md:block">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-white/10 bg-white/[0.025] text-text-primary/80 transition-smooth group-hover:-translate-y-1">
+          <Icon className="h-5 w-5" style={{ color: project.accent }} />
+        </div>
+
+        <div className="md:mt-8">
+          <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-text-muted">
+            0{index + 1} / {project.eyebrow}
+          </p>
+          <div className="mt-4 flex items-end gap-3">
+            <span className="text-5xl font-black leading-none tracking-tight md:text-6xl" style={{ color: project.accent }}>
+              {project.metric}
+            </span>
+            <span className="max-w-[11rem] pb-1 text-[11px] font-bold uppercase leading-4 tracking-[0.16em] text-text-secondary">
+              {project.metricLabel}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative overflow-hidden rounded-md border border-white/8 bg-white/[0.018] p-6 transition-smooth group-hover:border-white/14 group-hover:bg-white/[0.028] md:p-8">
+        <div
+          className="absolute inset-y-0 left-0 w-1 opacity-80 transition-smooth group-hover:w-1.5"
+          style={{ backgroundColor: project.accent }}
+        />
+
+        <div className="grid gap-7 lg:grid-cols-[1fr_0.74fr]">
+          <div className="min-w-0">
+            <h3 className="max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-text-primary md:text-3xl">
+              {project.title}
+            </h3>
+            <p className="mt-4 max-w-[62ch] text-sm leading-7 text-text-secondary md:text-[15px]">
+              {project.summary}
+            </p>
+          </div>
+
+          <div className="border-t border-white/7 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted">
+              Build Stack
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {project.stack.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-md border border-white/8 bg-background/35 px-2.5 py-1.5 text-[11px] font-medium leading-none text-text-secondary transition-smooth group-hover:border-white/12 group-hover:text-text-primary/90"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-3">
+          {project.outcomes.map((outcome) => (
+            <div key={outcome} className="flex gap-3 text-sm leading-6 text-text-secondary/86">
+              <CheckCircle2 className="mt-1 h-4 w-4 shrink-0" style={{ color: project.accent }} />
+              <p>{outcome}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+};
 
 export const Projects = () => {
   return (
     <section className="section-container relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-google-blue/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-google-red/5 blur-[150px] rounded-full pointer-events-none" />
-
       <div className="relative z-10">
-        {/* Section Header */}
-        <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-10">
-          <div className="space-y-4">
+        <div className="mb-16 grid gap-8 md:grid-cols-[0.82fr_1.18fr] md:items-end">
+          <div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-px bg-google-blue" />
-              <span className="text-google-blue font-bold tracking-[0.3em] uppercase text-xs">Portfolio</span>
+              <div className="h-px w-10 bg-google-blue" />
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-google-blue">
+                Projects
+              </span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
-              Featured <span className="text-google-blue italic">Engineering</span> <span className="text-text-primary">Masterpieces</span>
+            <h2 className="mt-5 max-w-4xl text-4xl font-bold leading-none tracking-tight md:text-6xl">
+              Systems with measurable, shipped impact.
             </h2>
           </div>
-        </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-12">
-          {projects.map((project, idx) => (
-            <SpotlightCard
-              key={idx}
-              className="group p-!0 border-white/5 hover:border-white/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl"
-              spotlightColor={`${project.color}15`}
+          <div className="border-l border-white/10 pl-5">
+            <p className="max-w-xl text-sm leading-7 text-text-secondary md:text-base">
+              A minimal project index focused on outcomes, architecture choices, and evidence of execution without relying on image placeholders.
+            </p>
+            <a
+              href="mailto:vishruthmv@gmail.com"
+              className="mt-5 inline-flex items-center gap-2 rounded-md border border-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-text-primary/82 transition-smooth hover:border-google-blue/45 hover:text-google-blue"
             >
-              <div className="relative aspect-16/10 overflow-hidden">
-                {/* Image Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60" />
-
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-
-                {/* Hover Quick Actions */}
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-background/20 backdrop-blur-[2px] flex items-center justify-center gap-4">
-                  <a
-                    href={project.link}
-                    className="w-14 h-14 rounded-2xl bg-white text-black flex items-center justify-center hover:bg-google-blue hover:text-white transition-all duration-300 shadow-xl hover:scale-110"
-                  >
-                    <ExternalLink className="w-6 h-6" />
-                  </a>
-                  <a
-                    href={project.github}
-                    className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-google-red transition-all duration-300 shadow-xl hover:scale-110"
-                  >
-                    <Github className="w-6 h-6" />
-                  </a>
-                </div>
-
-                {/* Category Badge */}
-                <div className="absolute top-6 left-6 z-30">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-xl glass border-white/10 shadow-2xl">
-                    <Sparkles className="w-3 h-3 text-google-yellow animate-pulse" />
-                    <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Info */}
-              <div className="p-10 space-y-6">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between group/title">
-                    <h3 className="text-3xl font-bold tracking-tight text-text-primary group-hover:text-google-blue transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <p className="text-text-secondary text-base font-medium leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-black text-text-muted group-hover:text-text-primary group-hover:border-white/20 transition-all duration-300 uppercase tracking-widest"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </SpotlightCard>
-          ))}
+              Discuss the work <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </div>
 
-        {/* Action Area */}
-        <div className="mt-32 text-center relative">
-          <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] -z-10">
-            <span className="text-[15rem] font-black uppercase tracking-tighter">ARCHIVE</span>
-          </div>
-          <button className="group relative px-12 py-6 rounded-3xl overflow-hidden bg-white text-black transition-all duration-500 hover:scale-105 active:scale-95 shadow-2xl hover:shadow-google-blue/20">
-            <span className="relative z-10 flex items-center gap-4 text-xs font-black uppercase tracking-[0.4em]">
-              Explore Full Repository
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-google-blue translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-google-blue opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
+        <div className="relative">
+          <div className="absolute left-6 top-0 hidden h-full w-px bg-linear-to-b from-google-blue/35 via-white/10 to-google-green/25 md:block" />
+          {projects.map((project, index) => (
+            <ProjectRow key={project.title} project={project} index={index} />
+          ))}
         </div>
       </div>
     </section>
